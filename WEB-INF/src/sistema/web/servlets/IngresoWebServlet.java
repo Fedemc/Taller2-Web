@@ -1,7 +1,7 @@
 package sistema.web.servlets;
 
 
-public class Error  {
+public class IngresoWebServlet  {
 
 	
 }

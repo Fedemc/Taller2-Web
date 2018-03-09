@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <description> Taller2-WebApp </description>
+  <display-name> Taller2-WebApp </display-name>
+
+  <servlet>
+    <servlet-name>IngresoWeb</servlet-name>
+    <servlet-class>sistema.web.servlets.IngresoWebServlet</servlet-class>
+	
+	<init-param>
+		<param-name>ipServidor</param-name>
+		<param-value>localhost</param-value>
+	</init-param>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>IngresoWeb</servlet-name>
+    <url-pattern>/IngresoWeb</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ListadoEgresado</servlet-name>
+    <servlet-class>sistema.web.servlets.ListadoEgresadoServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>ListadoEgresado</servlet-name>
+    <url-pattern>/ListadoEgresado</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Error</servlet-name>
+    <servlet-class>sistema.web.servlets.ErrorServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Error</servlet-name>
+    <url-pattern>/Error</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Escolaridad</servlet-name>
+    <servlet-class>sistema.web.servlets.EscolaridadServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Escolaridad</servlet-name>
+    <url-pattern>/Escolaridad</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+	<welcome-file>/Principal.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
