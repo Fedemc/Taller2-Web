@@ -202,7 +202,7 @@ public class VentanaPrincipal {
 		mnConsultas.add(mntmConsultaDeEscolaridad);
 		
 		JLabel logotipo = new JLabel("");
-		Image logoSmall = new ImageIcon(this.getClass().getResource("/LogoSmall.png")).getImage();
+		Image logoSmall = new ImageIcon("Images/LogoSmall.png").getImage();
 		logotipo.setIcon(new ImageIcon(logoSmall));
 		frmChefGourmetUruguay.getContentPane().add(logotipo);	
 	}
