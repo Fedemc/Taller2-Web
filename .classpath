@@ -8,6 +8,6 @@
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
 	<classpathentry kind="src" path="WEB-INF/src"/>
 	<classpathentry kind="src" output="work" path="work"/>
-	<classpathentry kind="lib" path="C:/Users/federico.montoli/Documents/UDE/4to semestre/Taller 2/Web/forms-1.3.0.jar"/>
+	<classpathentry kind="lib" path="forms-1.3.0.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

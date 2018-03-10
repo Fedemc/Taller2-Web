@@ -80,7 +80,7 @@ public class VentanaRespaldo {
 			}
 		);
 						
-		Image iconG = new ImageIcon(this.getClass().getResource("/IconG.png")).getImage();
+		Image iconG = new ImageIcon("Images/LogoSmall.png").getImage();
 		
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		

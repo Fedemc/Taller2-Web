@@ -46,7 +46,7 @@ import sistema.logica.valueObjects.VOAlumnoDetallado;
 import sistema.logica.valueObjects.VOBecadoDetallado;
 import javax.swing.JTextArea;
 
-public class VentanaModificarAlumno3 {
+public class VentanaModificarAlumno {
 
 	private JFrame frmModificarDatosDel;
 	private JTextField txtCI;
@@ -66,7 +66,7 @@ public class VentanaModificarAlumno3 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaModificarAlumno3 window = new VentanaModificarAlumno3();
+					VentanaModificarAlumno window = new VentanaModificarAlumno();
 					window.frmModificarDatosDel.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -78,7 +78,7 @@ public class VentanaModificarAlumno3 {
 	/**
 	 * Create the application.
 	 */
-	public VentanaModificarAlumno3() {
+	public VentanaModificarAlumno() {
 		initialize();
 	}
 

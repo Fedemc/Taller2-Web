@@ -122,7 +122,7 @@ public class VentanaPrincipal {
 		
 		mntmModificarDatosDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaModificarAlumno3 vent = new VentanaModificarAlumno3();
+				VentanaModificarAlumno vent = new VentanaModificarAlumno();
 				vent.setVisible(true);
 			}
 		});
@@ -163,7 +163,7 @@ public class VentanaPrincipal {
 		JMenuItem mntmListadoDetalladoDe = new JMenuItem("Listado detallado de alumno");
 		mntmListadoDetalladoDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaModificarAlumno3 vent = new VentanaModificarAlumno3();
+				VentanaListadoAlumnoDetallado vent = new VentanaListadoAlumnoDetallado();
 				vent.setVisible(true);
 			}
 		});

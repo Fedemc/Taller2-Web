@@ -4,7 +4,7 @@ package sistema.grafica.controladores;
 import java.rmi.RemoteException;
 import sistema.excepciones.AlumnoException;
 
-import sistema.grafica.ventanas.VentanaModificarAlumno3;
+import sistema.grafica.ventanas.VentanaListadoAlumnoDetallado;
 
 import sistema.logica.ICapaLogica;
 import sistema.logica.valueObjects.VOAlumnoDetallado;
@@ -14,9 +14,9 @@ import sistema.logica.valueObjects.VOBecadoDetallado;
 public class ContVentAlumnoDet {
 
 	private ICapaLogica interfazFachada;
-	private VentanaModificarAlumno3 ventAlumDet;
+	private VentanaListadoAlumnoDetallado ventAlumDet;
 	
-	public ContVentAlumnoDet(VentanaModificarAlumno3 ventAlum) {
+	public ContVentAlumnoDet(VentanaListadoAlumnoDetallado ventAlum) {
 		ventAlumDet = ventAlum;
 		interfazFachada=ContSingleton.getInstancia().getInterfazFachada();	
 	}

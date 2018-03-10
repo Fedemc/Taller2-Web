@@ -1,6 +1,6 @@
 package sistema.grafica.controladores;
 
-import sistema.grafica.ventanas.VentanaModificarAlumno3;
+import sistema.grafica.ventanas.VentanaModificarAlumno;
 import sistema.logica.ICapaLogica;
 import sistema.logica.valueObjects.VOAlumnoDetallado;
 import sistema.logica.valueObjects.VOBecadoDetallado;
@@ -9,9 +9,9 @@ import java.rmi.RemoteException;
 
 public class ContVentanaModificarAlumno {
 	private ICapaLogica interfazFachada;
-	private VentanaModificarAlumno3 ventModAlu;
+	private VentanaModificarAlumno ventModAlu;
 	
-	public ContVentanaModificarAlumno(VentanaModificarAlumno3 ventModificarAlumno3) {
+	public ContVentanaModificarAlumno(VentanaModificarAlumno ventModificarAlumno3) {
 		ventModAlu = ventModificarAlumno3;
 		interfazFachada=ContSingleton.getInstancia().getInterfazFachada();
 	}
