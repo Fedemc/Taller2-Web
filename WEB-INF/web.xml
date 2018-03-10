@@ -9,8 +9,8 @@
   <display-name> Taller2-WebApp </display-name>
 
   <servlet>
-    <servlet-name>IngresoWeb</servlet-name>
-    <servlet-class>sistema.web.servlets.IngresoWebServlet</servlet-class>
+    <servlet-name>Principal</servlet-name>
+    <servlet-class>sistema.web.servlets.PrincipalServlet</servlet-class>
 	
 	<init-param>
 		<param-name>ipServidor</param-name>
@@ -19,8 +19,8 @@
   </servlet>
  
   <servlet-mapping>
-    <servlet-name>IngresoWeb</servlet-name>
-    <url-pattern>/IngresoWeb</url-pattern>
+    <servlet-name>Principal</servlet-name>
+    <url-pattern>/Principal</url-pattern>
   </servlet-mapping>
 
   <servlet>

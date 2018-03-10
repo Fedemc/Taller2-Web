@@ -500,5 +500,12 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica
 		monitor.terminoLectura();
 		return voegs;
 	}
+	
+	//Consulta para verificar si hay un alumno con la ced ingresada por parametro, es para utilizarlo con la consulta web
+	
+	public boolean existeAlumno(Long ced) throws RemoteException
+	{
+		return alumnos.member(ced);
+	}
 
 }
