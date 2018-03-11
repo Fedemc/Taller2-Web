@@ -1,7 +1,8 @@
 package sistema.web.servlets;
 
 
-public class ListadoEgresadoServlet  {
+public class ListadoEgresadoServlet  
+{
 
 	
 }

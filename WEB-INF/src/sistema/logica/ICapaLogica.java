@@ -63,6 +63,6 @@ public interface ICapaLogica extends Remote
 
 	VOEgresados listadoEgresadosCompleto() throws AlumnoException, RemoteException;
 	
-	boolean existeAlumno(Long ced) throws RemoteException;
+	boolean existeAlumno(long ced) throws RemoteException;
 	
 }

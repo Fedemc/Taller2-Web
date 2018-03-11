@@ -1,14 +1,8 @@
-<jsp:usebean id='mensajeError' scope='request' clase='java.lang.String' />
+<jsp:usebean id='mensajeError' scope='request' class='java.lang.String' />
 
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
 <body>
-Error!
 <p><b>$(mensajeError)</b></p>
-
-<p> < input type='submit' value= 'Volver'></p>
+<p><a href='Principal.jsp'>Volver al ingreso</a></p>
 </body>
 </html>

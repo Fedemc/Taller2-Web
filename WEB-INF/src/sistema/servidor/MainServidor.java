@@ -19,6 +19,8 @@ import java.net.MalformedURLException;
 
 public class MainServidor
 {
+	public static CapaLogica fachada;
+	
 	public static void main(String[] args)
 	{
 		try
@@ -36,7 +38,7 @@ public class MainServidor
 			
 			//publico el objeto remoto en dicha ip y puerto
 			String ruta="//"+ip+":"+puerto+"/fachada";
-			CapaLogica fachada=new CapaLogica();
+			fachada=new CapaLogica();
 					
 			System.out.println("Intento restaurar datos");
 			try
@@ -70,5 +72,7 @@ public class MainServidor
 		{
 			ioEx.printStackTrace();
 		}
+		
+		
 	}
 }

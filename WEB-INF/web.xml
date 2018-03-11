@@ -32,17 +32,7 @@
     <servlet-name>ListadoEgresado</servlet-name>
     <url-pattern>/ListadoEgresado</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>Error</servlet-name>
-    <servlet-class>sistema.web.servlets.ErrorServlet</servlet-class>
-  </servlet>
- 
-  <servlet-mapping>
-    <servlet-name>Error</servlet-name>
-    <url-pattern>/Error</url-pattern>
-  </servlet-mapping>
-  
+   
   <servlet>
     <servlet-name>Escolaridad</servlet-name>
     <servlet-class>sistema.web.servlets.EscolaridadServlet</servlet-class>
