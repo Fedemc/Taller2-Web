@@ -1,7 +1,8 @@
 package sistema.web.servlets;
 
-import sistema.logica.CapaLogica;
 import sistema.grafica.controladores.ContSingleton;
+import sistema.logica.CapaLogica;
+import sistema.logica.ICapaLogica;
 import sistema.servidor.MainServidor;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +15,23 @@ import java.io.IOException;
 
 public class PrincipalServlet extends HttpServlet
 {
-	private CapaLogica fachada=MainServidor.fachada;
-	
+	private CapaLogica fachada;
+	private ICapaLogica iFachada;
+	private static final long serialVersionUID = 1L;
 
+	
+	public void init ()
+	{
+		fachada=MainServidor.fachada;
+		iFachada=ContSingleton.getInstancia().getInterfazFachada();
+	}
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		//Obtengo los datos de la cedula desde el campo del jsp
 		String cedTexto=req.getParameter("cedula");	//Lo guardamos como String primero para verificar que no sea nulo, despues lo parsearemos a Long
 		String opcion=req.getParameter("consulta");
-		long ced=0;
+		long ced=Long.valueOf(cedTexto);
 		
 		boolean error=false;
 		String msjError=new String();
@@ -35,12 +44,20 @@ public class PrincipalServlet extends HttpServlet
 		else
 		{
 			//Parseo la cedula a Long y verifico si existe en el sistema
-			ced=Long.parseLong(cedTexto);
+			//ced=Long.parseLong(cedTexto);
 
-			if(fachada.existeAlumno(ced) == false)
+			if(fachada == null)
 			{
 				error=true;
-				msjError="No existe un alumno con esa cedula en el sistema.";
+				msjError="No hay fachada.";
+			}
+			else
+			{
+				if(fachada.existeAlumno(ced) == false)
+				{
+					error=true;
+					msjError="No existe un alumno con esa cedula en el sistema.";
+				}
 			}
 		}
 		

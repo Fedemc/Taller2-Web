@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:usebean id='listadoEgresado' scope='sesion' class='VOEgresados.sistema.logica.valueObjects' />
+<jsp:useBean id='listadoEgresado' scope='sesion' class='sistema.logica.valueObjects.VOEgresados' />
 
 <html>
 <head>
