@@ -11,19 +11,18 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 
 public class PrincipalServlet extends HttpServlet
 {
 	private CapaLogica fachada;
-	private ICapaLogica iFachada;
 	private static final long serialVersionUID = 1L;
 
 	
-	public void init ()
+	public void init()
 	{
-		fachada=MainServidor.fachada;
-		iFachada=ContSingleton.getInstancia().getInterfazFachada();
+		fachada=CapaLogica.getInstancia();
 	}
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -36,6 +35,7 @@ public class PrincipalServlet extends HttpServlet
 		boolean error=false;
 		String msjError=new String();
 		
+
 		if((cedTexto == null) || (cedTexto.trim().equals("")))	//Verifico que hayan ingresado algo en el campo de la cedula
 		{
 			error=true;
@@ -49,14 +49,25 @@ public class PrincipalServlet extends HttpServlet
 			if(fachada == null)
 			{
 				error=true;
-				msjError="No hay fachada.";
+				msjError="Hay: " + Integer.toString(fachada.cantElemAlumnos()) + " alumnos.";
 			}
 			else
 			{
-				if(fachada.existeAlumno(ced) == false)
+				error=true;
+				msjError="Hay fachada";
+				boolean existe=false;
+				try
 				{
-					error=true;
-					msjError="No existe un alumno con esa cedula en el sistema.";
+					existe=fachada.existeAlumno(ced);
+					if(!existe)
+					{
+						error=true;
+						msjError="No existe un alumno con esa cedula en el sistema.";
+					}
+				}
+				catch(NullPointerException nullEx)
+				{
+					msjError=nullEx.toString();
 				}
 			}
 		}
@@ -71,6 +82,7 @@ public class PrincipalServlet extends HttpServlet
 				session.setAttribute("consulta", opcion);
 			}
 		}
+			
 		
 		//Voy a la pagina que corresponda
 		req.setAttribute("mensajeError", msjError);	//Seteo el mensaje de error para pasarselo al jsp de Error

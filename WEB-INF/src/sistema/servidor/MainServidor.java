@@ -19,7 +19,7 @@ import java.net.MalformedURLException;
 
 public class MainServidor
 {
-	public static CapaLogica fachada;
+	
 	
 	public static void main(String[] args)
 	{
@@ -38,7 +38,7 @@ public class MainServidor
 			
 			//publico el objeto remoto en dicha ip y puerto
 			String ruta="//"+ip+":"+puerto+"/fachada";
-			fachada=new CapaLogica();
+			CapaLogica fachada=CapaLogica.getInstancia();
 					
 			System.out.println("Intento restaurar datos");
 			try
@@ -54,6 +54,7 @@ public class MainServidor
 			}
 			
 			Naming.rebind(ruta, fachada);
+			System.out.println(fachada.cantElemAlumnos());
 			
 		}
 		catch(RemoteException rE)
@@ -75,4 +76,5 @@ public class MainServidor
 		
 		
 	}
+	
 }

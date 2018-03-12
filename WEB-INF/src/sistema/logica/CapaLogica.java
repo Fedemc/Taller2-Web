@@ -12,6 +12,8 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.Random;
 import sistema.excepciones.*;
+import sistema.grafica.controladores.ContSingleton;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -23,11 +25,35 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica
 	Asignaturas asignaturas = null; 
 	Monitor monitor=new Monitor();
 	private static final long serialVersionUID = 1L;
+	private static CapaLogica instanciaFachada;
 	
-	public CapaLogica() throws RemoteException
+	/*public CapaLogica() throws RemoteException
 	{
 		
+	}*/
+	
+	private CapaLogica() throws RemoteException
+	{
+		
+	}
+	
+	public static CapaLogica getInstancia()
+	{
+		if(instanciaFachada==null)
+		{
+			try
+			{
+				instanciaFachada= new CapaLogica();
+			}
+			catch(RemoteException remEx)
+			{
+				remEx.printStackTrace();
+			}
+		}		
+
+		return instanciaFachada;	
 	}	
+	
 	
 	public void crearColeccionesFachada() throws RemoteException
 	{
@@ -503,9 +529,13 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica
 	
 	//Consulta para verificar si hay un alumno con la ced ingresada por parametro, es para utilizarlo con la consulta web
 	
-	public boolean existeAlumno(long ced) throws RemoteException
+	public boolean existeAlumno(Long ced) throws RemoteException, NullPointerException
 	{
 		return alumnos.member(ced);
 	}
-
+	
+	public int cantElemAlumnos() throws RemoteException
+	{
+		return alumnos.getCantidadElementos();
+	}
 }
