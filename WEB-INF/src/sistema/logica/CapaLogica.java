@@ -538,4 +538,9 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica
 	{
 		return alumnos.getCantidadElementos();
 	}
+	
+	public Alumnos getAlumnos()
+	{
+		return alumnos;
+	}
 }

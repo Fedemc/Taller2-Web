@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<jsp:useBean id='diccAlumnos' scope='application' class='sistema.logica.alumnos.Alumnos' />
 
 <html>
 <head>
