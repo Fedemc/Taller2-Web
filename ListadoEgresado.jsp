@@ -8,5 +8,7 @@
 <body>
 
 <p> <input type='submit' value= 'Volver'></p>
+
+<p><a href='Principal.jsp'>Volver al ingreso</a></p>
 </body>
 </html>

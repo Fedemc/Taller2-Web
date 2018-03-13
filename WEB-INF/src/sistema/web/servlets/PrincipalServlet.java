@@ -1,9 +1,7 @@
 package sistema.web.servlets;
 
-import sistema.logica.CapaLogica;
-import sistema.logica.alumnos.Alumnos;
+
 import sistema.logica.ICapaLogica;
-import sistema.servidor.MainServidor;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,18 +10,15 @@ import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.Properties;
 
 
 public class PrincipalServlet extends HttpServlet
 {
-	private CapaLogica fachada;
 	private ICapaLogica iFachada;
 	private static final long serialVersionUID = 1L;
 
@@ -34,11 +29,10 @@ public class PrincipalServlet extends HttpServlet
 		try
 		{
 			//Intento conectarme
-			
-			//String ip=super.getInitParameter("ipServidor");
-			String ip="127.0.0.1";
-			//String puerto=super.getInitParameter("puertoServidor");
-			String puerto="1099";
+			String ip=super.getInitParameter("ipServidor");
+			//String ip="127.0.0.1";
+			String puerto=super.getInitParameter("puertoServidor");
+			//String puerto="1099";
 			String ruta="//"+ip+":"+puerto+"/fachada";
 			
 			//Voy a buscar el objeto remoto
@@ -57,7 +51,6 @@ public class PrincipalServlet extends HttpServlet
 			nobEx.printStackTrace();
 		}
 		
-		//fachada=CapaLogica.getInstancia();
 		
 	}
 	
@@ -87,35 +80,6 @@ public class PrincipalServlet extends HttpServlet
 		}
 		else
 		{
-			//Parseo la cedula a Long y verifico si existe en el sistema
-			//ced=Long.parseLong(cedTexto);
-			
-			/*
-			if(fachada == null)
-			{
-				error=true;
-				msjError="Hay: " + Integer.toString(fachada.cantElemAlumnos()) + " alumnos.";
-			}
-			else
-			{
-				error=true;
-				msjError="Hay fachada";
-				boolean existe=false;
-				try
-				{
-					existe=fachada.existeAlumno(ced);
-					if(!existe)
-					{
-						error=true;
-						msjError="No existe un alumno con esa cedula en el sistema.";
-					}
-				}
-				catch(NullPointerException nullEx)
-				{
-					msjError=nullEx.toString();
-				}
-			}
-			*/
 			if(!iFachada.existeAlumno(ced))
 			{
 				error=true;
