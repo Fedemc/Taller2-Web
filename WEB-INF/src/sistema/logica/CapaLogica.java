@@ -534,13 +534,4 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica
 		return alumnos.member(ced);
 	}
 	
-	public int cantElemAlumnos() throws RemoteException
-	{
-		return alumnos.getCantidadElementos();
-	}
-	
-	public Alumnos getAlumnos()
-	{
-		return alumnos;
-	}
 }

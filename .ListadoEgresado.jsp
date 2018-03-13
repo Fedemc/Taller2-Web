@@ -1,14 +1,15 @@
 <html><head>
 <title>Listado de Egresados</title>
-</head><body>
-<p>Listado de Egresado</p>
+</head><body bgcolor="#FFFFCC">
+<h2><b><ins>Listado de egresados</ins></b></h2>
+<p/>
 
-<table>
+<table border="1" cellspacing="1" width="30%">
 	<c:forEach items="${listadoEgresado}" var="i">
 		<tr>
-			<td>Cedula: ${listadoEgresado[i].cedula}</td>
-			<td>Nombre: ${listadoEgresado[i].nombre</td>
-			<td>Apellido: ${listadoEgresado[i].apellido</td>
+			<td>Cedula: ${i.cedula}</td>
+			<td>Nombre: ${i.nombre}</td>
+			<td>Apellido: ${i.apellido}</td>
 		</tr>
 	</c:forEach>
 </table>

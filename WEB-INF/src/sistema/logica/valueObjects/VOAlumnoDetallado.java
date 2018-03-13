@@ -41,6 +41,26 @@ public class VOAlumnoDetallado extends VOAlumno implements Serializable{
 	public Float getCuotaMensual( ) {
 		return cuotaMensual;
 	}
+	
+	public void setDomicilio(String dom)
+	{
+		this.domicilio=dom;
+	}
+	
+	public void setTelefono(int tel)
+	{
+		this.telefono=tel;
+	}
+	
+	public void setDirCorreo(String dirCo)
+	{
+		this.dirCorreo=dirCo;
+	}
+	
+	public void setCuotaMensual(Float cuota)
+	{
+		this.cuotaMensual=cuota;
+	}
 
 	@Override
 	public String toString() {

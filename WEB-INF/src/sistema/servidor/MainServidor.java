@@ -54,7 +54,7 @@ public class MainServidor
 			}
 			
 			Naming.rebind(ruta, fachada);
-			System.out.println(fachada.cantElemAlumnos());
+			System.out.println("Servidor en linea");
 			
 		}
 		catch(RemoteException rE)

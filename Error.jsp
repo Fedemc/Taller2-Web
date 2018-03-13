@@ -4,8 +4,9 @@
 <head>
 <title>Error</title>
 </head>
-<body>
-<p>Ocurrió un error!</p>
+<body bgcolor="#ffa366">
+<h2><b>Ocurrió un error!</b></h2>
+<p>
 <p><b>${mensajeError}</b></p>
 <p><a href='Principal.jsp'>Volver al ingreso</a></p>
 </body>

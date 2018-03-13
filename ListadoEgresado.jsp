@@ -5,8 +5,9 @@
 <head>
 <title>Listado de Egresados</title>
 </head>
-<body>
-<p>Listado de Egresado</p>
+<body bgcolor="#FFFFCC">
+<h2><b><ins>Listado de egresados</ins></b></h2>
+<p>
 
 <table border="1" cellspacing="1" width="30%">
 	<c:forEach items="${listadoEgresado}" var="i">

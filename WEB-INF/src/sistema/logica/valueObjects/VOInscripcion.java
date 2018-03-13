@@ -9,6 +9,11 @@ public class VOInscripcion implements Serializable {
 	private int anioLectivo;
 	private int calificacion;
 	
+	public VOInscripcion()
+	{
+		
+	}
+	
 	public VOInscripcion(int numero, String nombreAsignatura, int anioLectivo, int calificacion) {
 		this.numero = numero;
 		this.nombreAsignatura = nombreAsignatura; 
@@ -31,6 +36,26 @@ public class VOInscripcion implements Serializable {
 
 	public int getCalificacion() {
 		return calificacion;
+	}
+	
+	public void setNumero(int num)
+	{
+		this.numero=num;
+	}
+	
+	public void setNombreAsignatura(String nomAsig)
+	{
+		this.nombreAsignatura=nomAsig;
+	}
+	
+	public void setAnioLectiv(int anio)
+	{
+		this.anioLectivo=anio;
+	}
+	
+	public void setCalificacion(int calif)
+	{
+		this.calificacion=calif;
 	}
 
 	@Override

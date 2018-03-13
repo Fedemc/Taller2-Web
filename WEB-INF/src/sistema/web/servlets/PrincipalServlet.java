@@ -17,7 +17,11 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import sistema.excepciones.AlumnoException;
+import sistema.excepciones.InscripcionException;
 import sistema.logica.valueObjects.VOAlumno;
+import sistema.logica.valueObjects.VOAlumnoDetallado;
+import sistema.logica.valueObjects.VOInscripcion;
+
 import java.util.ArrayList;
 
 
@@ -107,6 +111,50 @@ public class PrincipalServlet extends HttpServlet
 			if(opcion.equals("Escolaridad"))
 			{
 				//try y catch del armado del VO de escolaridad del alumno
+				//Me armo el VO Alumno para mostrar sus datos en la página
+				try
+				{
+					VOAlumnoDetallado voAlu=iFachada.listadoAlumnoCedulaComun(ced);
+					req.setAttribute("datosAlumno", voAlu);
+				}
+				catch(AlumnoException aluEx)
+				{
+					msjError=aluEx.darMensaje();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				catch(RemoteException remEx)
+				{
+					msjError=remEx.toString();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				
+				//Me armo el VO de la escolaridad del alumno para mostrarlo en la página
+				try
+				{
+					ArrayList<VOInscripcion> arrayIns=iFachada.consultaEscolaridadParcial(ced).getVOInscripcionesArray();
+					req.setAttribute("escolaridadAlumno", arrayIns);
+				}
+				catch(InscripcionException inscEx)
+				{
+					msjError=inscEx.darMensaje();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				catch(AlumnoException aluEx)
+				{
+					msjError=aluEx.darMensaje();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				catch(RemoteException remEx)
+				{
+					msjError=remEx.toString();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				
 				rd=req.getRequestDispatcher("Escolaridad.jsp");
 			}
 			else
@@ -121,6 +169,12 @@ public class PrincipalServlet extends HttpServlet
 				catch(AlumnoException alEx)
 				{
 					msjError=alEx.darMensaje();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				catch(RemoteException remEx)
+				{
+					msjError=remEx.toString();
 					req.setAttribute("mensajeError", msjError);
 					rd=req.getRequestDispatcher("Error.jsp");
 				}
