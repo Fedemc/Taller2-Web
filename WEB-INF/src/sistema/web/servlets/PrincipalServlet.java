@@ -22,10 +22,8 @@ public class PrincipalServlet extends HttpServlet
 	private ICapaLogica iFachada;
 	private static final long serialVersionUID = 1L;
 
-	
 	public void init()
 	{
-		
 		try
 		{
 			//Intento conectarme
@@ -50,8 +48,6 @@ public class PrincipalServlet extends HttpServlet
 		{
 			nobEx.printStackTrace();
 		}
-		
-		
 	}
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -104,7 +100,7 @@ public class PrincipalServlet extends HttpServlet
 		RequestDispatcher rd;
 		if(!error)
 		{
-			if(opcion == "Escolaridad")
+			if(opcion.equals("Escolaridad"))
 			{
 				rd=req.getRequestDispatcher("Escolaridad.jsp");
 			}

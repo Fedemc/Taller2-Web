@@ -6,7 +6,7 @@
 <title>Listado de Egresados</title>
 </head>
 <body>
-
+<p>Listado de Egresado</p>
 <p> <input type='submit' value= 'Volver'></p>
 
 <p><a href='Principal.jsp'>Volver al ingreso</a></p>

@@ -6,7 +6,7 @@
 <title>Consulta de Escolaridad</title>
 </head>
 <body>
-
+<p>Consulta de Escolaridad</p>
 
 <p> <input type='submit' value= 'Volver'></p>
 
