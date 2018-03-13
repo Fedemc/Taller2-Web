@@ -64,26 +64,21 @@ public class PrincipalServlet extends HttpServlet
 		//Obtengo los datos de la cedula desde el campo del jsp
 		String cedTexto=req.getParameter("cedula");	//Lo guardamos como String primero para verificar que no sea nulo, despues lo parsearemos a Long
 		String opcion=req.getParameter("consulta");
-		long ced=Long.valueOf(cedTexto);
+		long ced=0;
 		
 		boolean error=false;
 		String msjError=new String();
 		
 		//Alumnos diccAls=iFachada.getAlumnos() falta agregar el metodo en la Interfaz
 		
-		ServletContext contexto=super.getServletContext();
-		synchronized(contexto)
-		{
-			//contexto.setAttribute("diccAlumnos", diccAls);
-		}
-
-		if((cedTexto == null) || (cedTexto.trim().equals("")))	//Verifico que hayan ingresado algo en el campo de la cedula
+		if((cedTexto.equals(null) || (cedTexto.trim().equals(""))))	//Verifico que hayan ingresado algo en el campo de la cedula
 		{
 			error=true;
 			msjError="Debe ingresar una cedula.";
 		}
 		else
 		{
+			ced=Long.valueOf(cedTexto);
 			if(!iFachada.existeAlumno(ced))
 			{
 				error=true;

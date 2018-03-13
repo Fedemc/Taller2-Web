@@ -27,26 +27,6 @@
     <url-pattern>/Principal</url-pattern>
   </servlet-mapping>
 
-  <servlet>
-    <servlet-name>ListadoEgresado</servlet-name>
-    <servlet-class>sistema.web.servlets.ListadoEgresadoServlet</servlet-class>
-  </servlet>
- 
-  <servlet-mapping>
-    <servlet-name>ListadoEgresado</servlet-name>
-    <url-pattern>/ListadoEgresado</url-pattern>
-  </servlet-mapping>
-   
-  <servlet>
-    <servlet-name>Escolaridad</servlet-name>
-    <servlet-class>sistema.web.servlets.EscolaridadServlet</servlet-class>
-  </servlet>
- 
-  <servlet-mapping>
-    <servlet-name>Escolaridad</servlet-name>
-    <url-pattern>/Escolaridad</url-pattern>
-  </servlet-mapping>
-
   <welcome-file-list>
 	<welcome-file>/Principal.jsp</welcome-file>
   </welcome-file-list>
