@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:useBean id='listadoEgresado' scope='session' class='sistema.logica.valueObjects.VOEgresados' />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id='listadoEgresado' scope='request' class='java.util.ArrayList' />
 
 <html>
 <head>
@@ -7,7 +7,16 @@
 </head>
 <body>
 <p>Listado de Egresado</p>
-<p> <input type='submit' value= 'Volver'></p>
+
+<table border="1" cellspacing="1" width="30%">
+	<c:forEach items="${listadoEgresado}" var="i">
+		<tr>
+			<td>Cedula: ${i.cedula}</td>
+			<td>Nombre: ${i.nombre}</td>
+			<td>Apellido: ${i.apellido}</td>
+		</tr>
+	</c:forEach>
+</table>
 
 <p><a href='Principal.jsp'>Volver al ingreso</a></p>
 </body>

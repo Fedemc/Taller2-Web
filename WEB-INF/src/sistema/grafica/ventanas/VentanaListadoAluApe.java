@@ -113,7 +113,7 @@ public class VentanaListadoAluApe {
 						rowData[0] = listadoAlu.get(i).getCedula();
 						rowData[1] = listadoAlu.get(i).getNombre();
 						rowData[2] = listadoAlu.get(i).getApellido();
-						rowData[3] = listadoAlu.get(i).getTipo();
+						rowData[3] = listadoAlu.get(i).getTipoAlumno();
 						model.addRow(rowData);
 					}
 					table.setModel(model);

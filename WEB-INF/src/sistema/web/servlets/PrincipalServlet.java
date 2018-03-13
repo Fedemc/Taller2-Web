@@ -16,6 +16,10 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import sistema.excepciones.AlumnoException;
+import sistema.logica.valueObjects.VOAlumno;
+import java.util.ArrayList;
+
 
 public class PrincipalServlet extends HttpServlet
 {
@@ -99,15 +103,30 @@ public class PrincipalServlet extends HttpServlet
 		req.setAttribute("mensajeError", msjError);	//Seteo el mensaje de error para pasarselo al jsp de Error
 		RequestDispatcher rd;
 		if(!error)
-		{
+		{		
 			if(opcion.equals("Escolaridad"))
 			{
+				//try y catch del armado del VO de escolaridad del alumno
 				rd=req.getRequestDispatcher("Escolaridad.jsp");
 			}
 			else
 			{
-				rd=req.getRequestDispatcher("ListadoEgresado.jsp");
+				//Armo el VO de egresados parcial y lo cargo como request attribute
+				try
+				{
+					ArrayList<VOAlumno> arrayAls=iFachada.listadoEgresadosParcial().getVOAlumnosArray();
+					req.setAttribute("listadoEgresado", arrayAls);
+					rd=req.getRequestDispatcher("ListadoEgresado.jsp");
+				}
+				catch(AlumnoException alEx)
+				{
+					msjError=alEx.darMensaje();
+					req.setAttribute("mensajeError", msjError);
+					rd=req.getRequestDispatcher("Error.jsp");
+				}
+				
 			}
+			
 		}
 		else
 		{

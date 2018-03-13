@@ -28,4 +28,8 @@ public class VOAlumnos implements Serializable {
 		return voalumnos.isEmpty();
 	}
 	
+	public void setArrayAlumnos(ArrayList<VOAlumno> voal)
+	{
+		this.voalumnos=voal;
+	}
 }
