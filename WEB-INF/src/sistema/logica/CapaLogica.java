@@ -27,11 +27,6 @@ public class CapaLogica extends UnicastRemoteObject implements ICapaLogica
 	private static final long serialVersionUID = 1L;
 	private static CapaLogica instanciaFachada;
 	
-	/*public CapaLogica() throws RemoteException
-	{
-		
-	}*/
-	
 	private CapaLogica() throws RemoteException
 	{
 		
